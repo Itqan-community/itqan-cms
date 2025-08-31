@@ -145,7 +145,7 @@ export function Auth0IntegratedProvider({ children, locale }: AuthProviderProps)
         }
       } catch (error) {
         console.error('Error syncing user:', error);
-        updateUser(null);
+        persistUserState(null);
       } finally {
         setIsLoading(false);
       }
@@ -259,7 +259,7 @@ export function Auth0IntegratedProvider({ children, locale }: AuthProviderProps)
           profileCompleted: true,
           auth0Id: auth0User?.sub!,
         };
-        updateUser(userData);
+        persistUserState(userData);
         setRequiresProfileCompletion(false);
         
         // Set profile completion flag
