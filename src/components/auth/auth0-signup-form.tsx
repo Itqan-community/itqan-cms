@@ -38,8 +38,8 @@ export function Auth0SignupForm({ dict, locale }: SignupFormProps) {
 
   const handleSocialSignup = (connection: string) => {
     loginWithRedirect({
-      connection: connection,
-      screen_hint: 'signup',
+        connection: connection,
+        screen_hint: 'signup',
     });
   };
 
