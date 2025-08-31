@@ -9,30 +9,11 @@ interface AuthLayoutProps {
 }
 
 export function AuthLayout({ children, locale, className }: AuthLayoutProps) {
-
+  // Since both login and signup forms now handle their own full-screen layout,
+  // we just render the children directly
   return (
-    <div 
-      className={cn(
-        "min-h-screen bg-background flex items-center justify-center",
-        logical.paddingInline('4'),
-        className
-      )}
-      dir={direction.getDir(locale)}
-    >
-      <div 
-        className={cn(
-          "w-full max-w-md",
-          responsive.paddingInlineResponsive
-        )}
-      >
-        <div className={cn(
-          "bg-card text-card-foreground rounded-xl border shadow-lg",
-          logical.paddingInline('6'),
-          "py-8 space-y-6"
-        )}>
-          {children}
-        </div>
-      </div>
+    <div className={cn(className)} dir={direction.getDir(locale)}>
+      {children}
     </div>
   );
 }
